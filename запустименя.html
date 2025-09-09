@@ -465,11 +465,23 @@
         }
         
         // Функция для открытия почтового клиента
-       <div class="flex items-center cursor-pointer" onclick="openEmailClient()">
-    <i class="fas fa-envelope text-2xl mr-4"></i>
-    <span>zhakat51@gmail.com</span>
-</div>
-        }
+       function openEmailClient() {
+    // Делаем тему и тело письма КОРОТКИМИ и ПРОСТЫМИ
+    const subject = "Резюме QA-инженера";
+    const body = "Здравствуйте! Я откликаюсь на вакансию стажера QA. Буду рада обсудить свое резюме.";
+
+    // Создаем ссылку
+    const mailtoLink = `mailto:zhakat51@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // 1. Пытаемся открыть в новом окне/вкладке (это часто обходит блокировку pop-up)
+    const newWindow = window.open(mailtoLink, '_blank');
+
+    // 2. Если не получилось (например, браузер заблокировал pop-up),
+    // делаем классический редирект в текущем окне.
+    if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+        window.location.href = mailtoLink;
+    }
+}
         
         span.onclick = function() {
             modal.style.display = "none";
