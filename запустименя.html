@@ -465,10 +465,10 @@
         }
         
         // Функция для открытия почтового клиента
-        function openEmailClient() {
-            const subject = "Резюме QA-инженера";
-            const body = "Буду рада получить обратную связь, тем более, форма письма у вас уже открылась! 😄";
-            window.location.href = `mailto:zhakat51@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+       <div class="flex items-center cursor-pointer" onclick="openEmailClient()">
+    <i class="fas fa-envelope text-2xl mr-4"></i>
+    <span>zhakat51@gmail.com</span>
+</div>
         }
         
         span.onclick = function() {
