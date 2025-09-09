@@ -175,7 +175,7 @@
                         <i class="fas fa-phone text-2xl mr-4"></i>
                         <span>89170328953</span>
                     </div>
-                    <div class="flex items-center cursor-pointer" onclick="showModal('написать')">
+                    <div class="flex items-center cursor-pointer" onclick="openEmailClient()">
                         <i class="fas fa-envelope text-2xl mr-4"></i>
                         <span>zhakat51@gmail.com</span>
                     </div>
@@ -462,6 +462,13 @@
             } else if (action === 'написать') {
                 modalText.textContent = "Скорее написать! Я готова к стажировке и жду вашего предложения";
             }
+        }
+        
+        // Функция для открытия почтового клиента
+        function openEmailClient() {
+            const subject = "Резюме QA-инженера";
+            const body = "Буду рада получить обратную связь, тем более, форма письма у вас уже открылась! 😄";
+            window.location.href = `mailto:zhakat51@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
         
         span.onclick = function() {
