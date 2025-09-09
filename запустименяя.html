@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -154,9 +154,13 @@
     <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
         <!-- Fallback background -->
         <div class="hero-fallback"></div>
-      <img src="photoZK.png" 
-     alt="Background" 
-     class="absolute inset-0 w-full h-full object-cover z-[-2]">
+        
+        <!-- Попробуем разные варианты имени файла -->
+        <div class="hero-bg" style="background-image: url('photo_2025-08-26 23.41.16-2.png');" onerror="this.style.display='none'"></div>
+        <div class="hero-bg" style="background-image: url('photoZK.png');" onerror="this.style.display='none'"></div>
+        <div class="hero-bg" style="background-image: url('photo.jpg');" onerror="this.style.display='none'"></div>
+        <div class="hero-bg" style="background-image: url('photo.png');" onerror="this.style.display='none'"></div>
+        
         <div class="hero-overlay"></div>
         
         <div class="relative z-10 text-center px-4 text-white">
