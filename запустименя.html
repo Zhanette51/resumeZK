@@ -68,7 +68,6 @@
             50% { border-color: #1e40af; }
         }
         
-        /* Модальное окно */
         .modal {
             display: none;
             position: fixed;
@@ -115,7 +114,6 @@
             color: black;
         }
 
-        /* Hero section background fix */
         .hero-bg {
             position: absolute;
             inset: 0;
@@ -132,7 +130,6 @@
             z-index: -1;
         }
 
-        /* Fallback background color if image doesn't load */
         .hero-fallback {
             position: absolute;
             inset: 0;
@@ -142,7 +139,7 @@
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
-    <!-- Модальное окно -->
+
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -150,9 +147,9 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
+
     <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <!-- Fallback background -->
+
         <div class="hero-fallback"></div>
     
    
@@ -187,7 +184,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+
     <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="section-hidden bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 text-white shadow-2xl">
@@ -205,7 +202,7 @@
                         <i class="fas fa-phone text-2xl mr-4"></i>
                         <span>89170328953</span>
                     </div>
-                    <div class="flex items-center cursor-pointer" onclick="openEmailClient()">
+                    <div class="flex items-center cursor-pointer" onclick="showModal('позвонить'))">
                         <i class="fas fa-envelope text-2xl mr-4"></i>
                         <span>zhakat51@gmail.com</span>
                     </div>
