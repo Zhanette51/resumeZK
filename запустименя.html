@@ -457,7 +457,7 @@
         // Initialize GSAP
         gsap.registerPlugin(ScrollTrigger);
         
-        // Анимация появления секций
+        
         const sections = document.querySelectorAll('.section-hidden');
         
         sections.forEach(section => {
@@ -473,7 +473,7 @@
             });
         });
         
-        // Эффекты при наведении
+        
         document.querySelectorAll('.bg-white, .bg-gray-50').forEach(item => {
             item.addEventListener('mouseenter', () => {
                 item.classList.add('shadow-xl');
@@ -485,7 +485,7 @@
             });
         });
         
-        // Модальное окно
+ 
         const modal = document.getElementById("modal");
         const modalText = document.getElementById("modal-text");
         const span = document.getElementsByClassName("close")[0];
@@ -509,7 +509,7 @@
             }
         }
 
-        // ИСПРАВЛЕННЫЙ КОД: Проверка загрузки фонового изображения
+     
         document.addEventListener('DOMContentLoaded', function() {
             const bgImages = document.querySelectorAll('.hero-bg');
             let imageLoaded = false;
@@ -537,13 +537,13 @@
                     };
                     
                     tempImage.onerror = function() {
-                        // Если изображение не загрузилось, скрываем этот блок
+                        
                         img.style.display = 'none';
                     };
                     
                     tempImage.src = imageUrl;
                 } else {
-                    // Если не удалось извлечь URL, скрываем блок
+                    
                     img.style.display = 'none';
                 }
             });
