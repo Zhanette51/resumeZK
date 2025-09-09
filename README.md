@@ -35,13 +35,7 @@ P.S я из Самары, готова к переезду
 
 **📫 Как со мной связаться:**
 - Telegram: [@babyzhanette](https://t.me/babyzhanette)
-- Email: [<div class="flex items-center">
-    <i class="fas fa-envelope text-2xl mr-4"></i>
-    <a href="mailto:zhakat51@gmail.com?subject=Резюме QA-инженера&body=Здравствуйте, Жанна!" 
-       class="hover:text-blue-300 transition-colors cursor-pointer">
-        zhakat51@gmail.com
-    </a>
-</div>
+- Email: [zhakat51@gmail.com](mailto:zhakat51@gmail.com?subject=Резюме%20QA-инженера&body=Здравствуйте,%20Жанна!)
 - GitHub: [Zhanette51](https://github.com/Zhanette51)
 
 *P.S. Это резюме — тоже тестовый проект. Если найдёте неуказанные в баг-репорте баги — буду рада фидбэку! 😊*
