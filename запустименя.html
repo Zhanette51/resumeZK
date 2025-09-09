@@ -114,68 +114,9 @@
         .close:hover {
             color: black;
         }
-        
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .toast.show {
-            opacity: 1;
-        }
-        
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 140px;
-            background-color: #555;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px;
-            position: absolute;
-            z-index: 1;
-            bottom: 150%;
-            left: 50%;
-            margin-left: -75px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .tooltip .tooltiptext::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #555 transparent transparent transparent;
-        }
-        
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
-    <!-- Toast уведомление -->
-    <div id="toast" class="toast"></div>
-
     <!-- Модальное окно -->
     <div id="modal" class="modal">
         <div class="modal-content">
@@ -186,7 +127,7 @@
 
     <!-- Hero Section -->
     <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-right bg-fixed" style="background-image: url('https://placehold.co/800x1000/2563eb/white');"></div>
+        <div class="absolute inset-0 bg-cover bg-right bg-fixed" style="background-image: url('photo_2025-08-26 23.41.16.png');"></div>
         <div class="absolute inset-0 bg-black/40"></div>
         
         <div class="relative z-10 text-center px-4 text-white">
@@ -234,12 +175,9 @@
                         <i class="fas fa-phone text-2xl mr-4"></i>
                         <span>89170328953</span>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center cursor-pointer" onclick="openEmailClient()">
                         <i class="fas fa-envelope text-2xl mr-4"></i>
-                        <span id="email" class="cursor-pointer mr-2" onclick="openEmailClient()">zhakat51@gmail.com</span>
-                        <i class="fas fa-copy text-sm text-white/70 hover:text-white cursor-pointer tooltip" onclick="copyEmail()">
-                            <span class="tooltiptext">Скопировать email</span>
-                        </i>
+                        <span>zhakat51@gmail.com</span>
                     </div>
                     <div class="flex items-center">
                         <a href="https://t.me/babyzhanette" class="flex items-center">
@@ -247,9 +185,6 @@
                             <span>@babyzhanette</span>
                         </a>
                     </div>
-                </div>
-                <div class="mt-6 p-4 bg-blue-800/30 rounded-lg">
-                    <p class="text-sm"><i class="fas fa-info-circle mr-2"></i>На Mac почтовый клиент может не открыться автоматически. Используйте кнопку копирования и вставьте email в вашу почтовую программу.</p>
                 </div>
             </div>
         </div>
@@ -533,43 +468,7 @@
         function openEmailClient() {
             const subject = "Резюме QA-инженера";
             const body = "Буду рада получить обратную связь, тем более, форма письма у вас уже открылась! 😄";
-            
-            // Создаем ссылку
-            const mailtoLink = `mailto:zhakat51@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            // Пытаемся открыть в новом окне (это часто обходит блокировку pop-up)
-            const newWindow = window.open(mailtoLink, '_blank');
-            
-            // Если не получилось (например, браузер заблокировал pop-up),
-            // делаем классический редирект в текущем окне.
-            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-                window.location.href = mailtoLink;
-            }
-            
-            // Показываем подсказку для пользователей Mac
-            showToast("На Mac почтовый клиент может не открыться автоматически. Скопируйте email и отправьте письмо вручную.");
-        }
-        
-        // Функция для копирования email в буфер обмена
-        function copyEmail() {
-            const email = "zhakat51@gmail.com";
-            navigator.clipboard.writeText(email).then(() => {
-                showToast("Email скопирован в буфер обмена!");
-            }).catch(err => {
-                console.error('Ошибка при копировании: ', err);
-                showToast("Не удалось скопировать email");
-            });
-        }
-        
-        // Функция для показа toast-уведомлений
-        function showToast(message) {
-            const toast = document.getElementById("toast");
-            toast.textContent = message;
-            toast.classList.add("show");
-            
-            setTimeout(() => {
-                toast.classList.remove("show");
-            }, 3000);
+            window.location.href = `mailto:zhakat51@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
         
         span.onclick = function() {
