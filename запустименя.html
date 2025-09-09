@@ -114,6 +114,24 @@
         .close:hover {
             color: black;
         }
+
+        /* Hero section background fix */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -2;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
+            z-index: -1;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
@@ -127,8 +145,9 @@
 
     <!-- Hero Section -->
     <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-right bg-fixed" style="background-image: url('photo_2025-08-26 23.41.16-2.png');"></div>
-        <div class="absolute inset-0 bg-black/40"></div>
+        <!-- Исправленный фон -->
+        <div class="hero-bg" style="background-image: url('photo_2025-08-26%2023.41.16-2.png');"></div>
+        <div class="hero-overlay"></div>
         
         <div class="relative z-10 text-center px-4 text-white">
             <div class="floating mb-8">
@@ -335,7 +354,7 @@
                     <div class="flex justify-between items-start mb-4">
                         <div>
                             <h3 class="text-2xl font-bold text-blue-600">Институт международных экономических связей (ИМЭС)</h3>
-                            <p class="text-gray-600">2024 — 2027 ( ожидаемая дата выпуска)</p>
+                            <p class="text-gray-600">2024 — 2027 (ожидаемая дата выпуска)</p>
                         </div>
                         <span class="bg-blue-600 text-white px-4 py-1 rounded-full">Бакалавриат</span>
                     </div>
@@ -384,7 +403,7 @@
                     <div class="bg-white rounded-3xl p-6 shadow-lg">
                         <h3 class="text-xl font-semibold text-blue-600 mb-4">Проекты</h3>
                         <p class="text-gray-600">
-                            - <strong>Личный проект по тестированию веб-приложения:</strong> провела функциональное тестирование публичных сервисов. Составила 10+ тест-кейсов и чек-листов, оформила 10+ баг-репортов.<br><br>
+                            - <strong>Личный проект по тестирование веб-приложения:</strong> провела функциональное тестирование публичных сервисов. Составила 10+ тест-кейсов и чек-листов, оформила 10+ баг-репортов.<br><br>
                             - Данное резюме было сверстано самостоятельно на HTML/CSS/JS для демонстрации внимания к деталям и базовых технических навыков.
                         </p>
                     </div>
@@ -466,8 +485,8 @@
         
         // Функция для открытия почтового клиента
         function openEmailClient() {
-            const subject = "Резюме QA-инженера";
-            const body = "Буду рада получить обратную связь, тем более, форма письма у вас уже открылась! 😄";
+            const subject = "Приглашаем на собеседование!";
+            const body = "Вот ваша обратная связь:";
             window.location.href = `mailto:zhakat51@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
         
