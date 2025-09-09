@@ -500,24 +500,6 @@
             } else if (action === 'написать') {
                 modalText.textContent = "Скорее написать! Я готова к стажировке и жду вашего предложения";
             }
-        }
-        
-        // Функция для открытия почтового клиента
-        function openEmailClient() {
-            const subject = "Приглашаем на собеседование!";
-            const body = "Вот ваша обратная связь:";
-            window.location.href = `mailto:zhakat51@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        }
-        
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-        
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
 
         // Проверка загрузки фонового изображения
         document.addEventListener('DOMContentLoaded', function() {
