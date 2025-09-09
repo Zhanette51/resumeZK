@@ -122,7 +122,6 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed;
             z-index: -2;
         }
         
@@ -131,6 +130,14 @@
             inset: 0;
             background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
             z-index: -1;
+        }
+
+        /* Fallback background color if image doesn't load */
+        .hero-fallback {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            z-index: -3;
         }
     </style>
 </head>
@@ -145,8 +152,15 @@
 
     <!-- Hero Section -->
     <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <!-- Исправленный фон -->
-        <div class="hero-bg" style="background-image: url('photo_2025-08-26%2023.41.16-2.png');"></div>
+        <!-- Fallback background -->
+        <div class="hero-fallback"></div>
+        
+        <!-- Попробуем разные варианты имени файла -->
+        <div class="hero-bg" style="background-image: url('photo_2025-08-26 23.41.16-2.png');" onerror="this.style.display='none'"></div>
+        <div class="hero-bg" style="background-image: url('photoZK.png');" onerror="this.style.display='none'"></div>
+        <div class="hero-bg" style="background-image: url('photo.jpg');" onerror="this.style.display='none'"></div>
+        <div class="hero-bg" style="background-image: url('photo.png');" onerror="this.style.display='none'"></div>
+        
         <div class="hero-overlay"></div>
         
         <div class="relative z-10 text-center px-4 text-white">
@@ -379,7 +393,7 @@
                         </div>
                         <span class="bg-green-600 text-white px-4 py-1 rounded-full">Стажировка</span>
                     </div>
-                    <p class="text-gray-600">Повышение уровня владения китайским языком и культурой</p>
+                    <p class="text-gray-600">Повышение уровня владения китайным языком и культурой</p>
                 </div>
             </div>
         </div>
@@ -499,6 +513,31 @@
                 modal.style.display = "none";
             }
         }
+
+        // Проверка загрузки фонового изображения
+        document.addEventListener('DOMContentLoaded', function() {
+            const bgImages = document.querySelectorAll('.hero-bg');
+            let imageLoaded = false;
+            
+            bgImages.forEach(img => {
+                const tempImage = new Image();
+                tempImage.src = img.style.backgroundImage.replace('url("', '').replace('")', '');
+                tempImage.onload = function() {
+                    if (!imageLoaded) {
+                        imageLoaded = true;
+                        // Показываем только первое загруженное изображение
+                        bgImages.forEach(otherImg => {
+                            if (otherImg !== img) {
+                                otherImg.style.display = 'none';
+                            }
+                        });
+                    }
+                };
+                tempImage.onerror = function() {
+                    img.style.display = 'none';
+                };
+            });
+        });
     </script>
 </body>
 </html>
