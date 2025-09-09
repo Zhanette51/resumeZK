@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Жанна Катрич | Начинающий QA-инженер </title>
-    <meta name="description" content="Резюме начинающего QA-инженера Жанны Катрич для стажировки в Яндекс">
-    <meta name="keywords" content="QA, тестирование, стажер, Яндекс, стажировка, тестировщик">
+    <title>Жанна Катрич | Начинающий QA-инженер</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -19,6 +17,7 @@
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
         
+        /* Стили для анимации появления */
         .section-hidden {
             opacity: 0;
             transform: translateY(50px);
@@ -30,429 +29,58 @@
             transform: translateY(0);
         }
         
-        .progress-bar {
-            transition: width 2s ease-in-out;
-        }
-        
-        .language-dot {
+        /* Стили для рамки с тенью */
+        .shadow-card {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
             transition: all 0.3s ease;
         }
         
-        .language-dot:hover {
-            transform: scale(1.2);
+        .shadow-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
         }
         
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .typewriter {
-            overflow: hidden;
-            border-right: .15em solid #1e40af;
-            white-space: nowrap;
-            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #1e40af; }
-        }
-        
-        /* Модальное окно */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            width: 80%;
-            max-width: 400px;
-            text-align: center;
-            animation: slideIn 0.3s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        
-        .close:hover {
-            color: black;
-        }
-
-        /* Hero section background fix */
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            z-index: -2;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
-            z-index: -1;
-        }
-
-        /* Fallback background color if image doesn't load */
-        .hero-fallback {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            z-index: -3;
+        /* Анимация для прогресс-баров */
+        .progress-bar {
+            transition: width 2s ease-in-out;
         }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
-    <!-- Модальное окно -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p id="modal-text" class="text-lg font-medium mt-4"></p>
-        </div>
-    </div>
 
-    <!-- Hero Section -->
-    <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <!-- Fallback background -->
-        <div class="hero-fallback"></div>
-      <img src="photoZK.png" 
-     alt="Background" 
-     class="absolute inset-0 w-full h-full object-cover z-[-2]">
-        <div class="hero-overlay"></div>
-        
-        <div class="relative z-10 text-center px-4 text-white">
-            <div class="floating mb-8">
-                <div class="w-32 h-32 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mx-auto shadow-2xl flex items-center justify-center">
-                    <span class="text-white text-4xl font-bold">ZK</span>
-                </div>
-            </div>
-            
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 typewriter">Жанна Катрич</h1>
-            <p class="text-xl md:text-2xl text-white/90 mb-8">Начинающий QA-инженер</p>
-            
-            <div class="flex justify-center space-x-4">
-                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
-                    Связаться со мной
-                </a>
-                <a href="#experience" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
-                    Опыт работы
-                </a>
-            </div>
-        </div>
-        
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-            <div class="animate-bounce">
-                <i class="fas fa-chevron-down text-white text-2xl"></i>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="section-hidden bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 text-white shadow-2xl">
-                <h2 class="text-3xl font-bold mb-6 text-center">Жанна Катрич Владиславовна</h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="flex items-center">
-                        <i class="fas fa-birthday-cake text-2xl mr-4"></i>
-                        <span>15.09.2004</span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-map-marker-alt text-2xl mr-4"></i>
-                        <span>Самара</span>
-                    </div>
-                    <div class="flex items-center cursor-pointer" onclick="showModal('позвонить')">
-                        <i class="fas fa-phone text-2xl mr-4"></i>
-                        <span>89170328953</span>
-                    </div>
-                    <div class="flex items-center cursor-pointer" onclick="openEmailClient()">
-                        <i class="fas fa-envelope text-2xl mr-4"></i>
-                        <span>zhakat51@gmail.com</span>
-                    </div>
-                    <div class="flex items-center">
-                        <a href="https://t.me/babyzhanette" class="flex items-center">
-                            <i class="fab fa-telegram text-2xl mr-4"></i>
-                            <span>@babyzhanette</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Objective Section -->
-   <div class="bg-white rounded-3xl p-8 shadow-xl">
-    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Цель</h2>
-    <p class="text-lg text-gray-600 leading-relaxed">
-       <!-- Objective Section -->
+    <!-- Objective Section с анимацией и рамкой -->
     <section id="objective" class="py-20">
         <div class="container mx-auto px-4 max-w-4xl">
-            <div class="section-hidden bg-white rounded-3xl p-8 shadow-xl">
+            <div class="section-hidden shadow-card bg-white rounded-3xl p-8">
                 <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Цель</h2>
                 <p class="text-lg text-gray-600 leading-relaxed">
-                    Начинающий тестировщик с глубоким пониманием бизнес-процессов и внутренней IT-инфраструктуры Альфа-Банка. 
-                    Стремлюсь применить аналитические навыки, полученные на руководящей должности, и знание иностранных языков 
-                    для обеспечения высокого качества цифровых продуктов в команде Альфа-Банка. Готова к интенсивному обучению 
-                    и решению сложных задач.
+                    Стремлюсь начать карьеру в QA-тестировании, где могу применить свои сильные стороны: 
+                    <strong>аналитическое мышление</strong>, <strong>дотошное внимание к деталям</strong> и 
+                    <strong>опыт работы в высоконагруженной IT-среде</strong>. 
+                </p>
+                <p class="text-lg text-gray-600 leading-relaxed mt-4">
+                    В Альфа-Банке я <strong>тестировала</strong> процессы удаленного обслуживания, 
+                    <strong>внедряла</strong> улучшения на основе анализа инцидентов и 
+                    <strong>добилась</strong> снижения времени обработки запросов на 15% через оптимизацию workflow. 
+                    Не всегда получалось с первого раза — некоторые решения требовали нескольких итераций, 
+                    но именно это научило меня методично искать root cause проблем.
+                </p>
+                <p class="text-lg text-gray-600 leading-relaxed mt-4">
+                    Как нетипичный представитель поколения Z, я не ищу work-life balance в ущерб профессиональному росту. 
+                    <strong>Готова вкладывать время и силы</strong> в освоение инструментов тестирования и лучших практик. 
+                    Меня вдохновляет корпоративная культура Яндекса, продуманный онбординг и возможность 
+                    начинать карьеру в крупной компании с сильным комьюнити, где ценят чувство локтя.
+                </p>
+                <p class="text-lg text-gray-600 leading-relaxed mt-4">
+                    Особенно интересно <strong>тестирование пользовательских интерфейсов</strong> и 
+                    <strong>сложной бизнес-логики</strong> — хочу развивать экспертизу в обеспечении 
+                    безупречного качества цифровых продуктов, которые используют миллионы людей.
                 </p>
             </div>
         </div>
     </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-white">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="section-hidden">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Ключевые навыки</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Новый блок: QA & Testing -->
-                    <div class="bg-gray-50 rounded-2xl p-6 shadow-lg">
-                        <h3 class="text-xl font-semibold text-blue-600 mb-4">QA & Testing</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i><span><strong>Тестирование веб-приложений</strong></span></li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i><span><strong>Составление тест-кейсов и чек-листов</strong></span></li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i><span><strong>Поиск и документирование багов</strong></span></li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i><span><strong>Ручное функциональное тестирование</strong></span></li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i><span>Основы <strong>SQL</strong> (простые запросы)</span></li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i><span>Основы работы с <strong>API</strong> (REST, Postman)</span></li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i><span><strong>Python</strong> для автоматизации (на базовом уровне)</span></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-gray-50 rounded-2xl p-6 shadow-lg">
-                        <h3 class="text-xl font-semibold text-blue-600 mb-4">Профессиональные</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                                <span>Теория тестирования (SDLC, STLC)</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                                <span>Проведение маркетинговых и бизнес-исследований, SQL, API (REST), Postman</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                                <span>Основы Python для автоматизации</span>
-                                </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                                <span>Понимение ML/DL алгоритмов</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-gray-50 rounded-2xl p-6 shadow-lg">
-                        <h3 class="text-xl font-semibold text-blue-600 mb-4">Языки</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between mb-2">
-                                    <span>Английский</span>
-                                    <span class="text-blue-600">B2</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2">
-                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 73%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-2">
-                                    <span>Китайский</span>
-                                    <span class="text-blue-600">HSK3</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2">
-                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 50%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-20">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="section-hidden">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Опыт работы</h2>
-                
-                <div class="bg-white rounded-3xl p-8 shadow-xl mb-8">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-blue-600">Альфа-Банк</h3>
-                        <span class="bg-blue-100 text-blue-600 px-4 py-1 rounded-full">Март 2025 — н.в.</span>
-                    </div>
-                    <p class="text-lg font-semibold text-gray-700 mb-4">Руководитель направления дистанционной поддержки юр. лиц</p>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-blue-500 mt-1 mr-3"></i>
-                            <span>Проведение анализа процессов удаленного обслуживания, выявление "узких мест" и точек для оптимизации</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-blue-500 mt-1 mr-3"></i>
-                            <span>Глубокий анализ инцидентов, поиск первопричин проблем и их устранение. Взаимодействие со смежными командами для решения задач</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-blue-500 mt-1 mr-3"></i>
-                            <span>Опыт работы в команде и распределении задач</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-blue-500 mt-1 mr-3"></i>
-                            <span>Работа в среде с высокими требованиями к качеству и отказоустойчивости сервисов</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="bg-white rounded-3xl p-8 shadow-xl">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-blue-600">Альфа-Банк</h3>
-                        <span class="bg-blue-100 text-blue-600 px-4 py-1 rounded-full">Январь 2024 — Март 2025</span>
-                    </div>
-                    <p class="text-lg font-semibold text-gray-700 mb-4">Специалист дистанционной поддержки юр. лиц</p>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-blue-500 mt-1 mr-3"></i>
-                            <span>Консультирование корпоративных клиентов по продуктам банка</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-blue-500 mt-1 mr-3"></i>
-                            <span>Помощь в адаптации новым сотрудникам</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="py-20 bg-white">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="section-hidden">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Образование</h2>
-                
-                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl p-8 shadow-lg mb-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <h3 class="text-2xl font-bold text-blue-600">Институт международных экономических связей (ИМЭС)</h3>
-                            <p class="text-gray-600">2024 — 2027 (ожидаемая дата выпуска)</p>
-                        </div>
-                        <span class="bg-blue-600 text-white px-4 py-1 rounded-full">Бакалавриат</span>
-                    </div>
-                    <p class="text-lg font-semibold text-gray-700 mb-3">Направление: 38.03.05 «Бизнес-информатика»</p>
-                    <p class="text-gray-600 mb-4">Профиль: «Информационные технологии в бизнесе»</p>
-                    <div class="bg-white rounded-2xl p-4">
-                        <h4 class="font-semibold text-blue-600 mb-2">Изучаемые дисциплины:</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full">Базы данных</span>
-                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full">Проектирование ИС</span>
-                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full">Python, Java, JavaScript, C++</span>
-                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full">Управление IT-проектами</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gradient-to-r from-green-50 to-teal-50 rounded-3xl p-8 shadow-lg">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <h3 class="text-2xl font-bold text-green-600">Языковая стажировка в Китае</h3>
-                            <p class="text-gray-600">Июль 2025</p>
-                        </div>
-                        <span class="bg-green-600 text-white px-4 py-1 rounded-full">Стажировка</span>
-                    </div>
-                    <p class="text-gray-600">Повышение уровня владения китайным языком и культурой</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Additional Info Section -->
-    <section id="additional" class="py-20">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="section-hidden">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Дополнительная информация</h2>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-3xl p-6 shadow-lg">
-                        <h3 class="text-xl font-semibold text-blue-600 mb-4">Курсы</h3>
-                        <p class="text-gray-600">
-                            Решаю задачи на LeetCode, изучаю Java и Selenium WebDriver для написания автотестов,
-                            а также - основы маркетингового анализа и бизнес-исследований.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-white rounded-3xl p-6 shadow-lg">
-                        <h3 class="text-xl font-semibold text-blue-600 mb-4">Проекты</h3>
-                        <p class="text-gray-600">
-                            - <strong>Личный проект по тестирование веб-приложения:</strong> провела функциональное тестирование публичных сервисов. Составила 10+ тест-кейсов и чек-листов, оформила 10+ баг-репортов.<br><br>
-                            - Данное резюме было сверстано самостоятельно на HTML/CSS/JS для демонстрации внимания к деталям и базовых технических навыков.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 mt-8 text-white shadow-xl">
-                    <h3 class="text-xl font-semibold mb-4">О себе</h3>
-                    <p class="leading-relaxed">
-                        Начинающий QA-инженер с опытом работы в высоконагруженной IT-среде Альфа-Банка. Обладаю развитым аналитическим мышлением, умением выявлять причинно-следственные связи и дотошным вниманием к деталям. Быстро учусь и горю желанием внести вклад в создание качественного продукта для миллионов пользователей.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-4 text-center">
-            <p>© 2025 Жанна Катрич. Все права защищены.</p>
-            <div class="flex justify-center space-x-6 mt-4">
-                <a href="#" class="hover:text-blue-400 transition-colors">
-                    <i class="fab fa-linkedin-in text-2xl"></i>
-                </a>
-                <a href="https://github.com/Zhanette51" class="hover:text-blue-400 transition-colors">
-                    <i class="fab fa-github text-2xl"></i>
-                </a>
-                <a href="https://t.me/babyzhanette" class="hover:text-blue-400 transition-colors">
-                    <i class="fab fa-telegram-plane text-2xl"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
 
     <script>
         // Initialize GSAP
@@ -475,70 +103,14 @@
         });
         
         // Add hover effects
-        document.querySelectorAll('.bg-white, .bg-gray-50').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                item.classList.add('shadow-xl');
-                item.classList.remove('shadow-lg');
+        document.querySelectorAll('.shadow-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+                card.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
             });
-            item.addEventListener('mouseleave', () => {
-                item.classList.remove('shadow-xl');
-                item.classList.add('shadow-lg');
-            });
-        });
-        
-        // Модальное окно
-        const modal = document.getElementById("modal");
-        const modalText = document.getElementById("modal-text");
-        const span = document.getElementsByClassName("close")[0];
-        
-        function showModal(action) {
-            modal.style.display = "block";
-            if (action === 'позвонить') {
-                modalText.textContent = "Скорее позвонить! Я готова к стажировке и жду вашего предложения";
-            } else if (action === 'написать') {
-                modalText.textContent = "Скорее написать! Я готова к стажировке и жду вашего предложения";
-            }
-        }
-        
-        // Функция для открытия почтового клиента
-        function openEmailClient() {
-            const subject = "Приглашаем на собеседование!";
-            const body = "Вот ваша обратная связь:";
-            window.location.href = `mailto:zhakat51@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        }
-        
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-        
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        // Проверка загрузки фонового изображения
-        document.addEventListener('DOMContentLoaded', function() {
-            const bgImages = document.querySelectorAll('.hero-bg');
-            let imageLoaded = false;
-            
-            bgImages.forEach(img => {
-                const tempImage = new Image();
-                tempImage.src = img.style.backgroundImage.replace('url("', '').replace('")', '');
-                tempImage.onload = function() {
-                    if (!imageLoaded) {
-                        imageLoaded = true;
-                        // Показываем только первое загруженное изображение
-                        bgImages.forEach(otherImg => {
-                            if (otherImg !== img) {
-                                otherImg.style.display = 'none';
-                            }
-                        });
-                    }
-                };
-                tempImage.onerror = function() {
-                    img.style.display = 'none';
-                };
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
             });
         });
     </script>
